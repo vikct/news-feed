@@ -23,7 +23,7 @@
   <div *ngFor="let post of news.articles" fxFlex="20%">
 
     <mat-card class=singleNews>
-      <img mat-card-image src="{{post.urlToImage}}" onError="this.src='/assets/blank.png';">
+      <img mat-card-image src="{{post.urlToImage}}" onError="this.src='/assets/images/picture-not-available.jpg';">
       <div class="cardbody">
         <mat-card-title>{{post.title}}</mat-card-title>
         <mat-card-content>
