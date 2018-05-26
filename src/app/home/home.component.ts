@@ -1,31 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { Observer } from 'rxjs/Observer';
-
-import { Feed } from '../models/feed.model';
-
-import { FeedsService } from '../services/feeds.service';
+import { NewsService } from '../services/news.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  providers:[NewsService]
+  
 })
 export class HomeComponent implements OnInit {
+  news= {articles:[]};
 
-  public feeds: Observable<Feed[]>;
 
-  constructor(private feedsService: FeedsService) { }
+  constructor(private newsService: NewsService){}
 
   ngOnInit() {
-    this.getFeeds();
+    this.newsService.getTopHeadLines()
+  		.subscribe(
+  			response => this.news = response.json()
+    );
   }
-
-  getFeeds(): void {
-    this.feedsService
-      .getJSON()
-      .subscribe(data => this.feeds = data);
-      
-  }
-
 }
