@@ -9,3 +9,6 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 ## Demo
 
 For Demo, please visit this URL: https://news-feed.netlify.com/
+
+## API
+API is provided by https://newsapi.org/
