@@ -1,45 +1,25 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { HttpModule } from '@angular/http';
-import { FormsModule,ReactiveFormsModule } from '@angular/forms';
-
-import { MaterialModule } from './material.module';
 
 import { AppRoutingModule } from './app-routing.module';
-
 import { AppComponent } from './app.component';
-import { environment } from '../environments/environment';
-import { PostsComponent } from './posts/posts.component';
-import { HomeComponent } from './home/home.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { ThemeService } from './services/theme.service';
-import { NewsService } from './services/news.service';
-
+import { CoreModule } from './@core/core.module';
+import { ThemeModule } from './@theme/theme.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    PostsComponent,
-    HomeComponent,
-    NavbarComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MaterialModule,
-    FlexLayoutModule,
     AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpModule,
-    ServiceWorkerModule.register('/ngsw-worker.js', { 
-      enabled: environment.production
-    })
+
+    CoreModule.forRoot(),
+    ThemeModule.forRoot()
   ],
-  providers: [ThemeService, NewsService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
