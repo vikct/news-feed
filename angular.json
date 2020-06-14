@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "news-feed"
+  "defaultProject": "news-feed",
+  "cli": {
+    "analytics": false
+  }
 }
