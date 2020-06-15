@@ -10,6 +10,10 @@ import {
   HttpClientModule,
   // HTTP_INTERCEPTORS
 } from '@angular/common/http';
+// import { ServiceWorkerModule } from '@angular/service-worker';
+
+import { environment } from '../../environments/environment';
+
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { throwIfAlreadyLoaded } from './helpers/module-import.guard';
 
@@ -21,6 +25,9 @@ import { throwIfAlreadyLoaded } from './helpers/module-import.guard';
     RouterModule,
     HttpClientModule,
     // FlexLayoutModule
+    // ServiceWorkerModule.register('/ngsw-worker.js', {
+    //   enabled: environment.production
+    // })
   ],
 })
 export class CoreModule {

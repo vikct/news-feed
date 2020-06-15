@@ -14,6 +14,11 @@ const routes: Routes = [
           .then(m => m.DemosModule)
       },
       {
+        path: 'news',
+        loadChildren: () => import('./news/news.module')
+          .then(m => m.NewsModule)
+      },
+      {
         path: 'pages',
         loadChildren: () => import('./demos/demos.module')
           .then(m => m.DemosModule)
@@ -25,11 +30,12 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: 'demos',
+        redirectTo: 'news',
         pathMatch: 'full',
       }
     ]
-  }
+  },
+
 ];
 
 @NgModule({
