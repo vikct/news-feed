@@ -1,29 +1,28 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
+import { MaterialModule } from './material.module';
 import { AppComponent } from './app.component';
-import { CoreModule } from './@core/core.module';
-import { ThemeModule } from './@theme/theme.module';
+import { PostsComponent } from './posts/posts.component';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PostsComponent
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
     AppRoutingModule,
-    ServiceWorkerModule.register('/ngsw-worker.js', {
-      enabled: environment.production
-    }),
-
-    CoreModule.forRoot(),
-    ThemeModule.forRoot(),
+    BrowserAnimationsModule,
+    MaterialModule,
+    ServiceWorkerModule.register(
+      'ngsw-worker.js',
+      { enabled: environment.production }
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]
