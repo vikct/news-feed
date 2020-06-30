@@ -8,14 +8,14 @@ import { NewsService } from '../services/news.service';
   providers: [NewsService]
 })
 export class HomeComponent implements OnInit {
-  news = {articles: []};
+  news: any = {articles: []};
 
   constructor(private newsService: NewsService) { }
 
   ngOnInit(): void {
     this.newsService.getTopHeadLines()
-  		.subscribe(
-  			response => this.news = response
+      .subscribe(
+        response => this.news = response
     );
   }
 

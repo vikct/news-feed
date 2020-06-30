@@ -9,8 +9,8 @@ import { NewsService } from '../services/news.service';
 })
 export class PostsComponent implements OnInit {
 
-  news = { articles: [] };
-  newsSources = { sources: [] };
+  news: any = { articles: [] };
+  newsSources: any = { sources: [] };
   filterSource = 'google-news';
 
   constructor(private newsService: NewsService) { }
