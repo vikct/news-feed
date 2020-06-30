@@ -11,11 +11,11 @@ export class NewsService {
   constructor(private http: HttpClient) { }
 
   getTopHeadLines(){
-    return this.http.get('https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=' + this.key);
+    return this.http.get('https://newsapi.org/v2/top-headlines?country=my&category=general&apiKey=' + this.key);
   }
 
   getNewBySource(source){
-    return this.http.get('https://newsapi.org/v2/top-headlines?sources='+source+'&apiKey=' + this.key);
+    return this.http.get('https://newsapi.org/v2/top-headlines?sources=' + source + '&apiKey=' + this.key);
   }
 
   getSources(){
